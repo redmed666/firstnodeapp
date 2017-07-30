@@ -1,10 +1,10 @@
 var http = require('http');
 var redis = require('redis');
 
-var hostname = '0.0.0.0';
-var port = 3000;
+var http_host = 'web';
+var http_port = '3000';
 
-var client = redis.createClient(6379,'redis');
+var client = redis.createClient('6379','redis');
 
 client.on('connect', () => {
     console.log('Connected');
@@ -32,6 +32,6 @@ const server = http.createServer((req, res) => {
 });
 
 
-server.listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}`);
+server.listen(http_port, http_host, () => {
+    console.log(`Server running at http://${http_host}:${http_port}`);
 });
